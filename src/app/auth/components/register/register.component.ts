@@ -12,12 +12,14 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   errorMessage: String = '';
 
-  constructor(private auth: AuthService, private fb: FormBuilder, private router: Router) {
-    this.registerForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required]
-    })
-  }
+  constructor(private auth: AuthService,
+              private fb: FormBuilder,
+              private router: Router) {
+                this.registerForm = this.fb.group({
+                  email: ['', [Validators.required, Validators.email]],
+                  password: ['', Validators.required]
+                })
+              }
 
   ngOnInit(): void {
   }
