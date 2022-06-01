@@ -25,7 +25,7 @@ export class AuthService {
       map((res: any) => {
         const user = res;
         if (user.success) {
-          localStorage.setItem('Bearer', user.payload.toke.value);
+          localStorage.setItem('Bearer', user.payload.token.value);
           const newUser = new User(
             user.payload.user.email,
             user.payload.user.id,
