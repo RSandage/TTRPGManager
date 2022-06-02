@@ -20,6 +20,16 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
+
+
+  register(form: LoginData) {
+    return this.http.post(this.apiUrl + 'create', form).pipe(
+      map(() => {
+        this.router.navigate(['/login']);
+      })
+    )
+  }
+
   login(form: LoginData){
     return this.http.post(this.apiUrl + 'login', form).pipe(
       map((res: any) => {
@@ -33,17 +43,11 @@ export class AuthService {
             user.payload.user._tokenExpirationDate
           );
           this.user.next(newUser);
+          localStorage.setItem('userData', JSON.stringify(newUser))
+          this.router.navigate(['/profile'])
         }
       })
     );
-  }
-
-  register(form: LoginData) {
-    return this.http.post(this.apiUrl + 'create', form).pipe(
-      map(() => {
-        this.router.navigate(['/login']);
-      })
-    )
   }
 
   logout() {
@@ -73,6 +77,10 @@ export class AuthService {
   getToken() {
     let token = localStorage.getItem('Bearer');
     return token;
+  }
+
+  getUser() {
+    return this.user
   }
 
 

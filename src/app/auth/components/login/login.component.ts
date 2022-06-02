@@ -28,8 +28,9 @@ export class LoginComponent implements OnInit {
     const authObs = {
       next: (user: any) => console.log(user),
       error: (err: any) => console.log(err),
-      complete: () => this.router.navigate(['/home'])
+      complete: () => this.router.navigate(['/profile'])
     };
-    this.auth.login(form.value).subscribe(authObs)
+    this.auth.login(form.value).subscribe(authObs);
+    this.router.navigate(['/profile']);
   }
 }
