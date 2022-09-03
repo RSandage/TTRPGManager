@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthModule } from './auth/auth.module';
 import { HttpClientModule } from '@angular/common/http';
 import { EncounterComponent } from './encounter/encounter.component';
+import { EventComponent } from './encounter/event/event.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { EncounterComponent } from './encounter/encounter.component';
     NavbarComponent,
     HomeComponent,
     EncounterComponent,
+    EventComponent,
   ],
   imports: [
     BrowserModule,
